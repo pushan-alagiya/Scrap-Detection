@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+  />
+  </head>
+  <body>
+    <div class="nav_bar" >
+    
+      <section id="header" class="fixed-top d-flex align-items-center header-transparent">
+      <div class="container d-flex align-items-center justify-content-between">
+   
+        <div class="logo">
+          <h1><a href="index.html"><span>De SCRAP</span></a></h1>
+        </div>
+   
+        <nav id="navbar" class="navbar">
+          <ul>
+           <li><a class="nav-link scrollto active" href="http://127.0.0.1:5173/">Home</a></li>
+           <li><a class="nav-link scrollto" href="http://127.0.0.1:5173/#about">About</a></li>
+           <li><a class="nav-link scrollto" href="http://127.0.0.1:5173/#features">Features</a></li>
+           <li><a class="nav-link scrollto" to="http://127.0.0.1:5000" >Scrape</a></li>
+           <li><a class="nav-link scrollto" href="http://127.0.0.1:5173/#pricing">Scrape Rate Card</a></li>
+           <li><a class="nav-link scrollto" href="http://127.0.0.1:5173/#contact">Contact</a></li>
+           
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </section>
+      
+     </div>
+    <section class="cartSection">
+      <div class="Container">
+        <div class="cart">
+          <div class="top">
+            <h2>Scrap Total</h2>
+            <h2 id="items"></h2>
+          </div>
+          <table cellpadding="0">
+            <tr class="table-head">
+              <th width="140">Name</th>
+
+              <th width="140">Price</th>
+            </tr>
+            
+            <tbody>
+              {% for thing in options %}
+              <tr>
+                <td class="nameTD"><p>{{ thing }}</p></td>
+                <td class="priceTD" ><h2>{{ final[loop.index0] }}</h2></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <table id="root" cellspacing="0"></table>
+        </div>
+        <div class="summary">
+          <div class="top">
+            <h2>Order Summary</h2>
+          </div>
+          <div class="details">
+            <h2 id="itemB">items</h2>
+            <h2 id="totalA">{{no_item}}</h2>
+          </div>
+          <div class="detailA">
+            <h2>Address</h2>
+            <input type="text" placeholder="Enter Address." />
+          </div>
+          <div class="hline"></div>
+          <div class="top">
+            <h2>Total</h2>
+            <h2> {{total}}</h2>
+          </div>
+          <div class="checkoutdiv">
+            <button class="checkout" onclick="myFunction()">Check Out</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="{{ url_for('static', filename='js.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title>success</title>
+</head>
+<body>
+	<p>Items Detected</p>
+	<ul>
+		{% for thing in options %}
+		  <li>{{ thing.key }}</li>
+		{% endfor %}  
+		</ul>
+</body>
+</html>
